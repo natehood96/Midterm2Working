@@ -21,8 +21,12 @@ angular.module('voting',[])
       console.log("In Dovote");
       angular.forEach($scope.candidates, function(value,key) {
         if(value.selected) {
+          console.log('value is slected')
+          console.log(value.selected)
           $scope.upvote(value);
           $scope.ballot.push(value);
+          console.log('value is:')
+          console.log(value)
         }
       });
     }
@@ -36,7 +40,7 @@ angular.module('voting',[])
     };
 
     $scope.addCandidate = function() {
-      var newObj = {Name:$scope.formContent,votes:0};
+      var newObj = {Name:$scope.formContent,Votes:0};
       $scope.create(newObj);
       $scope.formContent = '';
     }
@@ -53,6 +57,16 @@ angular.module('voting',[])
       });
       $scope.getAll();
     };
+    
+    $scope.deleteAll = function() {
+      console.log("deleting all candidates")
+      $http.delete('/voting')
+       .success(function(data){
+         console.log("deleted all candidates")
+       });
+    }
+    
+    
   }
 ]);
 

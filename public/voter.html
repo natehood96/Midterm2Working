@@ -21,8 +21,10 @@ Submit Votes
 
         <h1>Submitted Ballot</h1>
         <div ng-repeat="candidate in ballot | orderBy: 'Name'">
-            {{candidate.Name}}
+            {{candidate.Name}} now has: {{candidate.Votes}} Vote(s)
         </div>
+        
+        
 </body>
 
 </html>

@@ -56,6 +56,16 @@ router.post('/voting', function(req, res, next) {
 	});
 });
 
+router.delete('/voting', function(req, res, next) {
+  console.log('in the delete all route')
+  VotingSchemaObj.find({}).remove(function(err, votingList) {
+        if (err) return console.error(err); //If there's an error, print it out
+          else {
+            res.sendStatus(200);
+          }
+  });
+});
+
 
 // /* GET comments from database */
 // router.get('/voting', function(req, res, next) {

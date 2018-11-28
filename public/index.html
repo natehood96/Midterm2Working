@@ -1,7 +1,7 @@
 <html>
 
 <head>
-  <title>Comments</title>
+  <title>Admin</title>
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
   <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
   <script src="javascripts/comments.js"></script>
@@ -18,9 +18,21 @@
     </form>
 
     <h1>Current Candidates</h1>
-    <div ng-repeat="candidate in candidates | orderBy:['-votes','Name']">
+    <div ng-repeat="candidate in candidates | orderBy:['-Votes','Name']">
       <span class="glyphicon glyphicon-remove" ng-click="delete(candidate)"></span> {{candidate.Name}} - votes {{candidate.Votes}}
+      <span class="glyphicon glyphicon-remove" ng-click="upvote(candidate)"></span>
     </div>
+    
+    
+    
+     <h1>Delete all Candidate's</h1>
+        <div>
+          <button ng-click="deleteAll()">Delete All Candidates</button>
+        </div>
+        
+        
+    
+        
 </body>
 
 </html>
